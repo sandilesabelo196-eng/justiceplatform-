@@ -1,0 +1,4 @@
+fastapi0.110.0
+uvicorn0.28.0
+psycopg2-binary2.9.9
+python-multipart0.0.9

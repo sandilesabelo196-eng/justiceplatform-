@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S.A. Justice Network - Secure Report</title>
+<style>
+/* Base Styling & Theme */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+background-color: #0c0f12;
+color: #e2e8f0;
+padding: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+}
+
+.container {
+width: 100%;
+max-width: 500px;
+background: #141a21;
+border: 1px solid #243142;
+border-radius: 12px;
+padding: 20px;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Security Status Banner */
+.security-banner {
+background-color: #1b2a1c;
+border: 1px solid #2e5430;
+color: #4ade80;
+padding: 12px;
+border-radius: 8px;
+font-size: 0.85rem;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.security-badge {
+background-color: #4ade80;
+color: #0c0f12;
+padding: 2px 6px;
+border-radius: 4px;
+font-weight: bold;
+font-size: 0.75rem;
+}
+
+/* Typography */
+h1 {
+font-size: 1.5rem;
+margin-bottom: 8px;
+color: #ffffff;
+font-weight: 600;
+}
+
+p.subtitle {
+font-size: 0.9rem;
+color: #94a3b8;
+margin-bottom: 24px;
+line-height: 1.4;
+}
+
+/* Form Controls */
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
+display: block;
+font-size: 0.85rem;
+font-weight: 600;
+margin-bottom: 8px;
+color: #cbd5e1;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+select, textarea, input[type="text"] {
+width: 100%;
+background-color: #1e293b;
+border: 1px solid #334155;
+color: #ffffff;
+padding: 12px;
+border-radius: 6px;
+font-size: 1rem;
+transition: border-color 0.2s;
+}
+
+select:focus, textarea:focus, input[type="text"]:focus {
+outline: none;
+border-color: #3b82f6;
+}
+
+textarea {
+resize: vertical;
+min-height: 100px;
+}
+
+/* Custom File Upload Button */
+.file-upload-wrapper {
+position: relative;
+background-color: #1e293b;
+border: 2px dashed #475569;
+border-radius: 6px;
+padding: 20px;
+text-align: center;
+cursor: pointer;
+transition: background-color 0.2s;
+}
+
+.file-upload-wrapper:hover {
+background-color: #334155;
+}
+
+.file-upload-wrapper input[type="file"] {
+position: absolute;
+left: 0;
+top: 0;
+opacity: 0;
+width: 100%;
+height: 100%;
+cursor: pointer;
+}
+
+.file-upload-text {
+font-size: 0.9rem;
+color: #94a3b8;
+}
+
+.file-upload-text b {
+color: #3b82f6;
+}
+
+/* Submit Button /
+.btn-submit {
+width: 100%;
+background-color: #dc2626; / Crimson alert color */
+color: #ffffff;
+border: none;
+padding: 14px;
+font-size: 1rem;
+font-weight: bold;
+border-radius: 6px;
+cursor: pointer;
+transition: background-color 0.2s;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-top: 10px;
+}
+
+.btn-submit:hover {
+background-color: #b91c1c;
+}
+
+/* Footnote */
+.footer-note {
+text-align: center;
+font-size: 0.75rem;
+color: #64748b;
+margin-top: 20px;
+line-height: 1.4;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<!-- Security Notice -->
+<div class="security-banner">
+<span class="security-badge">SECURE</span>
+<span>Your IP address and device identity are hidden. No data is logged.</span>
+</div>
+
+<!-- Header -->
+<h1>Report Criminal Activity</h1>
+<p class="subtitle">Submissions bypass local stations and lock directly onto a global decentralized ledger for independent oversight.</p>
+
+<!-- Form -->
+<form id="reportForm" onsubmit="handleSubmit(event)">
+
+<!-- Crime Type Selector -->
+<div class="form-group">
+<label for="crime-type">Type of Offence</label>
+<select id="crime-type" required>
+<option value="" disabled selected>Select crime category...</option>
+<option value="narcotics">Drug Distribution / Syndicate Operation</option>
+<option value="violent-crime">Violent Crime / Assault / Murder</option>
+<option value="corruption">Official Corruption / Bribery / Sabotage</option>
+<option value="other">Other Serious Offence</option>
+</select>
+</div>
+
+<!-- Location Details -->
+<div class="form-group">
+<label for="location">Location / Area description</label>
+<input type="text" id="location" placeholder="e.g. Corner of X and Y street, House 4B, Ward 12" required>
+</div>
+
+<!-- Incident Narrative -->
+<div class="form-group">
+<label for="description">Detailed Description of Activity</label>
+<textarea id="description" placeholder="Provide vehicle details, operating times, patterns, or names if known..." required></textarea>
+</div>
+
+<!-- Tamper-Proof Media Upload -->
+<div class="form-group">
+<label>Evidence Upload (Video, Audio, Photo)</label>
+<div class="file-upload-wrapper">
+<input type="file" id="media-upload" accept="image/,video/,audio/*">
+<div class="file-upload-text">
+<span>Drop file here or <b>browse</b></span><br>
+<span style="font-size: 0.75rem; color: #64748b;">AI auto-strips location and tracking data on upload.</span>
+</div>
+</div>
+</div>
+
+<!-- Submit Button -->
+<button type="submit" class="btn-submit">Lock & Submit Report</button>
+</form>
+
+<!-- Footer Policy -->
+<p class="footer-note">Protected by Zero-Knowledge Infrastructure.<br>Your safety is guaranteed by cryptography, not human promises.</p>
+</div>
+
+<script>
+// Simple function to demonstrate submission interaction
+function handleSubmit(event) {
+event.preventDefault();
+alert("SUCCESS:\n\nYour submission fingerprint has been processed.\nMetadata stripped.\nDocket locked onto decentralized database.");
+document.getElementById("reportForm").reset();
+}
+</script>
+
+</body>
+</html>
